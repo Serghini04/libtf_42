@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:33:10 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/01 22:10:19 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/02 10:44:42 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
-
+/*
 int main()
 {
 	int str[] = {};
@@ -36,4 +36,4 @@ int main()
 	//printf("%d\n",*( (int *)ft_memcpy(p, "55", 5) + 1 ));
 	printf("%d\n", *(int *)memcpy(p, "5", 5));
 }
-
+*/

@@ -1,36 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 19:27:24 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/02 10:44:15 by meserghi         ###   ########.fr       */
+/*   Created: 2023/11/01 18:26:01 by meserghi          #+#    #+#             */
+/*   Updated: 2023/11/02 10:47:35 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
+	size_t	j;
+	char	*res;
 
-	i = 0;
-	while (i < len)
+	i = start;
+	j = 0;
+	if (!s)
+		return (NULL);
+	res = malloc(len + 1);
+	if (!res)
+		return (0);
+	while (j < len && s[i])
 	{
-		((char *)b)[i] = (char )c;
+		res[j] = ((char *)s)[i];
 		i++;
+		j++;
 	}
-	return (b);
+	res[j] = '\0';
+	return (res);
 }
-/*
-int main()
+
+/*int main()
 {
-	int t[] ={0,1,1337,3};
-	ft_memset((void *)t, 97, 1);
-	for(int i = 0; i < 4; i++)
-		printf("%c\n" , (char)t[i]);
-		return(0);
+	printf("%s\n", ft_substr("Bonjour comment ca va?", 5, 8));
+	free("Bonjour comment ca va?");
 }
 */

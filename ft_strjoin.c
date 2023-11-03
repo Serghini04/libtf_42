@@ -1,36 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 19:27:24 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/02 10:44:15 by meserghi         ###   ########.fr       */
+/*   Created: 2023/11/02 10:46:49 by meserghi          #+#    #+#             */
+/*   Updated: 2023/11/02 10:55:57 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
+	int		len;
+	char	*res;
+	int		i;
+	int		j;
 
 	i = 0;
-	while (i < len)
+	j = 0;
+	len = ft_strlen(s1) + ft_strlen(s2);
+	res = malloc(len + 1);
+	if (!res)
+		return (NULL);
+	while (s1[i])
 	{
-		((char *)b)[i] = (char )c;
+		res[i] = s1[i];
 		i++;
 	}
-	return (b);
+	while (s2[j])
+	{
+		res[i] = s2[j];
+		j++;
+		i++;
+	}
+	res[i] = '\0';
+	return (res);
 }
-/*
-int main()
-{
-	int t[] ={0,1,1337,3};
-	ft_memset((void *)t, 97, 1);
-	for(int i = 0; i < 4; i++)
-		printf("%c\n" , (char)t[i]);
-		return(0);
-}
-*/

@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 18:12:40 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/01 18:19:34 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/03 11:52:14 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strdup(const char *s1)
 
 	i = 0;
 	len = ft_strlen(s1);
-	res = malloc(s1 + 1);
+	res = malloc(len + 1);
 	if (!res)
 		return (NULL);
 	while (s1[i])
@@ -28,6 +28,6 @@ char	*ft_strdup(const char *s1)
 		res[i] = ((char *)s1)[i];
 		i++;
 	}
-	((char *)s1)[i] = '\0';
-	return (s1);
+	((char *)res)[i] = '\0';
+	return (res);
 }

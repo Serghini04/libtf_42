@@ -1,36 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 19:27:24 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/02 10:44:15 by meserghi         ###   ########.fr       */
+/*   Created: 2023/11/02 12:10:47 by meserghi          #+#    #+#             */
+/*   Updated: 2023/11/03 11:20:56 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+int	len_res(int n)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (i < len)
+	if (n < 0)
 	{
-		((char *)b)[i] = (char )c;
+		n = -n;
 		i++;
 	}
-	return (b);
+	if (n == 0)
+		return (1);
+	while (n > 0)
+	{
+		n /= 10;
+		i++;
+	}
+	return (i);
 }
-/*
-int main()
+
+char	*ft_itoa(int n)
 {
-	int t[] ={0,1,1337,3};
-	ft_memset((void *)t, 97, 1);
-	for(int i = 0; i < 4; i++)
-		printf("%c\n" , (char)t[i]);
-		return(0);
+	int		len;
+	int		end;
+	char	*res;
+
+	len = len_res(n);
+	end = len;
+	res = malloc(len + 1);
+	if (n == 0)
+		res[0] = 48;
+	if (n < 0)
+	{
+		res[0] = '-';
+		n = -n;
+	}
+	len--;
+	while (n > 0)
+	{
+		res[len] = (n % 10) + 48;
+		n /= 10;
+		len--;
+	}
+	res[end] = '\0';
+	return (res);
 }
-*/
