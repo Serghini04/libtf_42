@@ -6,7 +6,7 @@
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/03 15:07:03 by meserghi          #+#    #+#              #
-#    Updated: 2023/11/03 15:33:59 by meserghi         ###   ########.fr        #
+#    Updated: 2023/11/03 15:35:03 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen
 	ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c \
 	ft_itoa.c
 OBJ	= $(SRC:.c=.o)
-CFLAGS = CC -Wall -Wextra -Werror
+CFLAGS = cc -Wall -Wextra -Werror
 RM = rm -f
 SL = ar -rcs
 NAME = libft.a
