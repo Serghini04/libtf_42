@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:23:03 by meserghi          #+#    #+#             */
-/*   Updated: 2023/10/31 22:50:58 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/04 12:28:33 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,13 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	size_t	i;
 
 	i = 0;
-	if (!s1 && !s2)
+	if (n == 0)
 		return (0);
-	while ((((char *)s1)[i] && (((char *)s1)[i] == ((char *)s2)[i])) && i < n)
+	while (i < n)
+	{
+		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
+			return ((((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]));
 		i++;
-	return ((int )(((char *)s1)[i] - ((char *)s2)[i]));
+	}
+	return (0);
 }

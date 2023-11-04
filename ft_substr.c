@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 18:26:01 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/02 10:47:35 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/04 12:57:40 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = start;
 	j = 0;
-	if (!s)
-		return (NULL);
+	if (!s || start >= ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > ft_strlen(s))
+		return (ft_strdup(s + start));
 	res = malloc(len + 1);
 	if (!res)
 		return (0);
@@ -34,10 +36,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	res[j] = '\0';
 	return (res);
 }
-
-/*int main()
+/*
+int main()
 {
-	printf("%s\n", ft_substr("Bonjour comment ca va?", 5, 8));
-	free("Bonjour comment ca va?");
+	printf("%s\n", ft_substr("Bonjour comment ca va?", 5, 1000000));
 }
 */

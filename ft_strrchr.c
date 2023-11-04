@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:50:57 by meserghi          #+#    #+#             */
-/*   Updated: 2023/10/31 22:29:46 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/04 11:08:10 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,14 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	int		i;
 
-	i = 0;
-	while (s[i])
-		i++;
-	i--;
-	while (i--)
+	i = ft_strlen(s);
+	while (i >= 0)
 	{
 		if (s[i] == c)
 			return (&((char *)s)[i]);
-		i++;
+		i--;
 	}
-	return (0);
+	return (NULL);
 }
