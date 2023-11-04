@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:10:47 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/03 11:20:56 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/04 20:21:12 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,22 @@
 
 int	len_res(int n)
 {
-	int	i;
+	int				i;
+	unsigned int	nb;
 
 	i = 0;
 	if (n < 0)
 	{
-		n = -n;
+		nb = -n;
 		i++;
 	}
+	else
+		nb = n;
 	if (n == 0)
 		return (1);
-	while (n > 0)
+	while (nb > 0)
 	{
-		n /= 10;
+		nb /= 10;
 		i++;
 	}
 	return (i);
@@ -34,9 +37,10 @@ int	len_res(int n)
 
 char	*ft_itoa(int n)
 {
-	int		len;
-	int		end;
-	char	*res;
+	int				len;
+	int				end;
+	char			*res;
+	unsigned int	nb;
 
 	len = len_res(n);
 	end = len;
@@ -46,14 +50,15 @@ char	*ft_itoa(int n)
 	if (n < 0)
 	{
 		res[0] = '-';
-		n = -n;
+		nb = -n;
 	}
+	else
+		nb = n;
 	len--;
-	while (n > 0)
+	while (nb > 0)
 	{
-		res[len] = (n % 10) + 48;
-		n /= 10;
-		len--;
+		res[len--] = (nb % 10) + 48;
+		nb /= 10;
 	}
 	res[end] = '\0';
 	return (res);
