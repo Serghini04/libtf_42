@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:25:51 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/02 12:10:03 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/04 19:59:02 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,10 @@ char	*get_word(char *s, char c)
 	int		len;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	len = len_word(s, c);
-	res = malloc(len + 1);
+	res = malloc((len + 1) * sizeof(char *));
 	if (!res)
 		return (NULL);
 	while (s[i] && s[i] != c)
@@ -69,7 +71,7 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	len = count_word((char *)s, c);
-	res = malloc((len + 1) * sizeof(char *));
+	res = malloc((len + 1) * sizeof(char **));
 	if (!res)
 		return (NULL);
 	while (*s)
@@ -81,7 +83,6 @@ char	**ft_split(char const *s, char c)
 		while (*s && *s != c)
 			s++;
 	}
-	res[i] = "\0";
+	res[i] = 0;
 	return (res);
 }
-/*!!! res[i] = "\0" not '\0' !!!!*/
