@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 13:01:51 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/01 18:21:05 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/03 22:08:39 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,15 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		i++;
 		dlen++;
 	}
+	if (dlen)
+	dst[dlen] = '\0';
 	return (spa);
 }
 
 /*int main()
 {
-	char br[20] = "hi me0000";
-	char br1[20] = "hi me0000";
-	printf("%d, %s\n", (int )ft_strlcat(br, "550", 20), br);
-	printf("%d, %s\n", (int )strlcat(br1, "550", 20), br1);
-}
-*/
+	char br[11] = "a";
+	//char br1[11] = "a";
+	printf("%d, %s\n", (int )ft_strlcat(br, "lorem", 15), br);
+	//printf("%d, %s\n", (int )strlcat(br1, "lorem", 15), br1);
+}*/

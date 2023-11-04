@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:35:33 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/02 12:08:48 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/03 17:50:06 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		return (NULL);
 	if (dst > src)
 	{
-		while (len)
+		while (len--)
 		{
 			((char *)dst)[len] = ((char *)src)[len];
-			len--;
 		}
 	}
 	else
