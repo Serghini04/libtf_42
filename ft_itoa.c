@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:10:47 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/04 20:21:12 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/05 18:05:17 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,16 @@ int	len_res(int n)
 	return (i);
 }
 
+char	*get_res(char *res, int len, unsigned int nb)
+{
+	while (nb > 0)
+	{
+		res[--len] = (nb % 10) + 48;
+		nb /= 10;
+	}
+	return (res);
+}
+
 char	*ft_itoa(int n)
 {
 	int				len;
@@ -45,6 +55,8 @@ char	*ft_itoa(int n)
 	len = len_res(n);
 	end = len;
 	res = malloc(len + 1);
+	if (!res)
+		return (NULL);
 	if (n == 0)
 		res[0] = 48;
 	if (n < 0)
@@ -54,12 +66,7 @@ char	*ft_itoa(int n)
 	}
 	else
 		nb = n;
-	len--;
-	while (nb > 0)
-	{
-		res[len--] = (nb % 10) + 48;
-		nb /= 10;
-	}
+	res = get_res(res, len, nb);
 	res[end] = '\0';
 	return (res);
 }

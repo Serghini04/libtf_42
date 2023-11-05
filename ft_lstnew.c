@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 17:50:04 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/05 18:10:00 by meserghi         ###   ########.fr       */
+/*   Created: 2023/11/05 19:04:40 by meserghi          #+#    #+#             */
+/*   Updated: 2023/11/05 19:25:41 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
-	void	*res;
+	t_list	*res;
 
-	i = 0;
-	res = (void *)malloc(size * count);
+	res = malloc(sizeof(t_list));
 	if (!res)
 		return (NULL);
-	while (i < count * size)
-	{
-		((char *)res)[i] = 0;
-		i++;
-	}
+	res->content = content;
+	res->next = NULL;
 	return (res);
 }
-// ex : int *p  = calloc(10, sizeof(int));
+/*
+int main()
+{
+	t_list *res = ft_lstnew("hi me");
+	ft_putstr_fd(res->content, 1);
+}
+*/

@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 17:50:04 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/05 18:10:00 by meserghi         ###   ########.fr       */
+/*   Created: 2023/11/05 21:20:42 by meserghi          #+#    #+#             */
+/*   Updated: 2023/11/05 21:55:32 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+int	ft_lstsize(t_list *lst)
 {
-	size_t	i;
-	void	*res;
+	int		count;
+	t_list	*i;
 
-	i = 0;
-	res = (void *)malloc(size * count);
-	if (!res)
-		return (NULL);
-	while (i < count * size)
+	i = lst;
+	count = 0;
+	while (i)
 	{
-		((char *)res)[i] = 0;
-		i++;
+		i = i->next;
+		count++;
 	}
-	return (res);
+	return (count);
 }
-// ex : int *p  = calloc(10, sizeof(int));
+
+/*int main()
+{
+	t_list	*head;
+
+	head = NULL;
+	ft_lstadd_front(&head, ft_lstnew("hi me5"));
+	ft_lstadd_front(&head, ft_lstnew("hi me4"));
+	ft_lstadd_front(&head, ft_lstnew("hi me3"));
+	ft_lstadd_front(&head, ft_lstnew("hi me2"));
+	printf("%d\n", ft_lstsize(head));
+}*/
