@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:35:33 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/03 17:50:06 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/05 12:06:29 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,29 +27,21 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		}
 	}
 	else
-	{
-		while (i < len)
-		{
-			((char *)dst)[i] = ((char *)src)[i];
-			i++;
-		}
-	}
+		ft_memcpy(dst, src, len);
 	return (dst);
 }
-
-/*int main()
+/*
+int main()
 {
     const unsigned char src[] = "abcdefghijklmnopqrstuvwxyz";
+    const unsigned char src1[] = "abcdefghijklmnopqrstuvwxyz";
     unsigned char       *dest;
     size_t          n;
-    int         i;
 
     n = 7;
-    i = 0;
     dest = ft_memmove((char *)src + 5, src + 3, n);
-    while (i < 20)
-        write(1, &src[i++], 1);
-    return(0);
+    printf("%s\n", dest);
+    printf("%s\n", ft_memcpy((char *)src1 + 5, src1 + 3, n));
 }
 // Overlapping case: copy from end to beginning.
 // Non-overlapping case: copy from beginning to end.
