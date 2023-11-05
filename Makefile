@@ -6,7 +6,7 @@
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/03 15:07:03 by meserghi          #+#    #+#              #
-#    Updated: 2023/11/04 21:08:02 by meserghi         ###   ########.fr        #
+#    Updated: 2023/11/05 15:21:51 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,17 +17,18 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen
 	ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c \
 	ft_putendl_fd.c ft_putnbr_fd.c
 OBJ	= $(SRC:.c=.o)
-CFLAGS = cc -Wall -Wextra -Werror
+CFLAGS = cc -Wall -Wextra -Werror -I./libft.h
 RM = rm -f
 SL = ar -rcs
 NAME = libft.a
+LB = libft.h
 
 all : ${NAME}
 
 ${NAME} : ${OBJ}
 	${SL} ${NAME} ${OBJ}
 
-%.o: %.c
+%.o: %.c ${LB}
 	${CFLAGS} -c $< -o $@
 fclean : clean
 	 ${RM} ${NAME}

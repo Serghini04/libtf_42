@@ -6,20 +6,21 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:50:04 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/01 18:11:14 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/05 17:46:09 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// ex : int *p  = calloc(10, sizeof(int));
 void	*ft_calloc(size_t count, size_t size)
 {
 	size_t	i;
 	void	*res;
 
 	i = 0;
-	res = malloc(size * count);
+	if (!count)
+		return (ft_strdup("0"));
+	res = (void *)malloc(size * count);
 	if (!res)
 		return (NULL);
 	while (i < count)
@@ -29,3 +30,4 @@ void	*ft_calloc(size_t count, size_t size)
 	}
 	return (res);
 }
+// ex : int *p  = calloc(10, sizeof(int));
