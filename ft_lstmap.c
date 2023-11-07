@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 20:31:29 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/07 16:28:08 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/07 16:39:38 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void *ch(void *str)
 	int	i;
 
 	i = 0;
-	while ((char *)str)
+	while (((char *)str)[i])
 	{
 		((char *)str)[i] = 'a';
 		i++;
@@ -70,7 +70,6 @@ int main()
 	ft_lstadd_back(&i, ft_lstnew(ft_strdup("Hi me 2")));
 	ft_lstadd_back(&i, ft_lstnew(ft_strdup("Hi me 3")));
 	print_lst(i);
-	ft_lstmap(i, ch, ft_free);
-	print_lst(i);
+	print_lst(ft_lstmap(i, ch, ft_free));
 }
 */
