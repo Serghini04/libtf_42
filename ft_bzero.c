@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:31:28 by meserghi          #+#    #+#             */
-/*   Updated: 2023/10/31 19:32:44 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:39:36 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_bzero(void *s, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		((char *)s)[i] = 0;
+		((unsigned char *)s)[i] = 0;
 		i++;
 	}
 }

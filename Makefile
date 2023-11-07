@@ -6,7 +6,7 @@
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/03 15:07:03 by meserghi          #+#    #+#              #
-#    Updated: 2023/11/06 18:44:59 by meserghi         ###   ########.fr        #
+#    Updated: 2023/11/07 16:27:02 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen
 	ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c\
 
 SRC_B = ft_lstnew.c ft_lstadd_front.c ft_lstlast.c ft_lstsize.c ft_lstadd_back.c\
-	ft_lstdelone.c ft_lstclear.c
+	ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 OBJ	= ${SRC:.c=.o}
 OBJ_B = ${SRC_B:.c=.o}
 CFLAGS = cc -Wall -Wextra -Werror

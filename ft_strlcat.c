@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 13:01:51 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/06 12:39:27 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/07 12:09:01 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		spa = slen + dlen;
 	else
 		spa = slen + dstsize;
-	if (dstsize == 0)
+	if (dstsize == 0 || !dst)
 		return (spa);
 	while (src[i] != '\0' && dlen < dstsize - 1)
 	{
@@ -42,6 +42,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	char br[11] = "a";
 	//char br1[11] = "a";
-	printf("%d, %s\n", (int )ft_strlcat(br, "lorem", 15), br);
-	//printf("%d, %s\n", (int )strlcat(br1, "lorem", 15), br1);
-}*/
+	printf("%d, %s\n", (int )ft_strlcat(NULL, "lorem", 1), br);
+	//printf("%d, %s\n", (int )strlcat(br1, "lorem", 1), br1);
+}
+*/
