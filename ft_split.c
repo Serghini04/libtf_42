@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:25:51 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/07 20:51:01 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/08 11:25:02 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,6 @@ int	count_word(char *str, char c)
 	return (count);
 }
 
-int	len_word(char *s, char c)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] && s[i] != c)
-		i++;
-	return (i);
-}
-
 char	*get_word(char *s, char c)
 {
 	char	*res;
@@ -48,9 +38,11 @@ char	*get_word(char *s, char c)
 	int		len;
 
 	i = 0;
+	len = 0;
 	if (!s)
 		return (NULL);
-	len = len_word(s, c);
+	while (s[len] && s[len] != c)
+		len++;
 	res = malloc((len + 1) * sizeof(char));
 	if (!res)
 		return (NULL);
@@ -63,25 +55,23 @@ char	*get_word(char *s, char c)
 	return (res);
 }
 
-void	ft_free(char **res, int i)
+void	free_split(char **res, int count)
 {
-	while (i > 0)
+	while (count > 0)
 	{
-		free(res[i - 1]);
-		i--;
+		free(res[count - 1]);
+		count--;
 	}
 	free(res);
 }
 
-char	**ft_split(char const *s, char c)
+char	**split_string(char const *s, char c, int word_count)
 {
 	char	**res;
 	int		i;
-	int		len;
 
 	i = 0;
-	len = count_word((char *)s, c);
-	res = (char **)malloc((len + 1) * sizeof(char *));
+	res = (char **)malloc((word_count + 1) * sizeof(char *));
 	if (!res)
 		return (NULL);
 	while (*s)
@@ -92,10 +82,7 @@ char	**ft_split(char const *s, char c)
 		{
 			res[i] = get_word((char *)s, c);
 			if (!res[i])
-			{
-				ft_free(res, i);
-				return (NULL);
-			}
+				return (free_split(res, i), NULL);
 			i++;
 		}
 		while (*s && *s != c)
@@ -103,4 +90,14 @@ char	**ft_split(char const *s, char c)
 	}
 	res[i] = 0;
 	return (res);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int	word_count;
+
+	if (!s)
+		return (NULL);
+	word_count = count_word((char *)s, c);
+	return (split_string(s, c, word_count));
 }

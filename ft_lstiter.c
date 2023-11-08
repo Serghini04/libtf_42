@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:57:24 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/07 10:56:17 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/08 11:55:46 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	t_list	*i;
 
 	i = lst;
+	if (!lst || !f)
+		return ;
 	while (i)
 	{
 		f(i->content);
