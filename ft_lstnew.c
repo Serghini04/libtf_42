@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 19:04:40 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/05 19:25:41 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/09 10:55:20 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,3 @@ t_list	*ft_lstnew(void *content)
 	res->next = NULL;
 	return (res);
 }
-/*
-int main()
-{
-	t_list *res = ft_lstnew("hi me");
-	ft_putstr_fd(res->content, 1);
-}
-*/

@@ -6,7 +6,7 @@
 #    By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/03 15:07:03 by meserghi          #+#    #+#              #
-#    Updated: 2023/11/08 12:31:52 by meserghi         ###   ########.fr        #
+#    Updated: 2023/11/09 10:13:49 by meserghi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,30 +18,28 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen
 
 SRC_B = ft_lstnew.c ft_lstadd_front.c ft_lstlast.c ft_lstsize.c ft_lstadd_back.c\
 	ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+
 OBJ	= ${SRC:.c=.o}
 OBJ_B = ${SRC_B:.c=.o}
-CFLAGS = cc -Wall -Wextra -Werror
-RM = rm -f
-SL = ar -rcs
+FLAGS = -Wall -Wextra -Werror
 NAME = libft.a
-LB = libft.h
 
 all : ${NAME}
 
 ${NAME} : ${OBJ}
-	${SL} ${NAME} ${OBJ}
+	ar -rc ${NAME} ${OBJ}
 
 bonus : ${NAME} ${OBJ_B}
-	${SL} ${NAME} ${OBJ_B}
+	ar -rc ${NAME} ${OBJ_B}
 
-%.o: %.c ${LB}
-	${CFLAGS} -c $< -o $@
+%.o: %.c libft.h
+	cc ${FLAGS} -c $< -o $@
 
 fclean : clean
-	 ${RM} ${NAME} ${OBJ_B}
+	rm -f ${NAME} ${OBJ_B}
 
 clean :
-	${RM} ${OBJ} {OBJ_B}
+	rm -f ${OBJ} {OBJ_B}
 
 re : fclean all
 

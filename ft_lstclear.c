@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:26:53 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/08 18:44:41 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/09 10:48:17 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list	*current;
-	t_list	*tmp;
+	t_list	*i;
+	t_list	*swap;
 
-	if (NULL == lst || NULL == del)
+	if (!lst || !del)
 		return ;
-	current = *lst;
-	while (current)
+	i = *lst;
+	while (i)
 	{
-		tmp = current;
-		current = current->next;
-		ft_lstdelone(tmp, del);
+		swap = i;
+		i = i->next;
+		ft_lstdelone(swap, del);
 	}
 	*lst = NULL;
 }

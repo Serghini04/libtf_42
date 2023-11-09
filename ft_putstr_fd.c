@@ -6,7 +6,7 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 20:57:23 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/04 21:09:13 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/09 10:38:47 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (!s)
+		return ;
 	while (s[i])
 		write(fd, &s[i++], 1);
 }
