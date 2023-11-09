@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 21:42:13 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/06 16:16:25 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/09 10:59:37 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,3 @@ t_list	*ft_lstlast(t_list *lst)
 		lst = lst->next;
 	return (lst);
 }
-
-/*int main()
-{
-	t_list	*head;
-
-	head = NULL;
-	ft_lstadd_front(&head, ft_lstnew("hi me5"));
-	ft_lstadd_front(&head, ft_lstnew("hi me4"));
-	ft_lstadd_front(&head, ft_lstnew("hi me3"));
-	ft_lstadd_front(&head, ft_lstnew("hi me2"));
-	t_list *i = ft_lstlast(head);
-	printf("%s\n", i->content);
-}
-*/
