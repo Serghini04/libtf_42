@@ -6,13 +6,13 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 11:19:30 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/08 21:34:08 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/09 21:41:55 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	check(char s1, char *set)
+static int	check(char s1, char *set)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	check(char s1, char *set)
 	return (0);
 }
 
-int	ft_start(char *s1, char *set)
+static int	ft_start(char *s1, char *set)
 {
 	int	i;
 
@@ -36,7 +36,7 @@ int	ft_start(char *s1, char *set)
 	return (i);
 }
 
-int	ft_end(char *s1, char *set)
+static int	ft_end(char *s1, char *set)
 {
 	int	i;
 

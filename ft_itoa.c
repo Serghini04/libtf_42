@@ -6,13 +6,13 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:10:47 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/08 21:42:28 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/09 21:42:36 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	len_res(int n)
+static int	len_res(int n)
 {
 	int				i;
 	unsigned int	nb;
@@ -35,7 +35,7 @@ int	len_res(int n)
 	return (i);
 }
 
-char	*get_res(char *res, int len, unsigned int nb)
+static char	*get_res(char *res, int len, unsigned int nb)
 {
 	while (nb > 0)
 	{

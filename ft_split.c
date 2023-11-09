@@ -6,13 +6,13 @@
 /*   By: meserghi <meserghi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:25:51 by meserghi          #+#    #+#             */
-/*   Updated: 2023/11/09 11:34:31 by meserghi         ###   ########.fr       */
+/*   Updated: 2023/11/09 21:56:50 by meserghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_word(char *str, char c)
+static int	count_word(char *str, char c)
 {
 	int	i;
 	int	count;
@@ -31,7 +31,7 @@ int	count_word(char *str, char c)
 	return (count);
 }
 
-char	*get_word(char *s, char c)
+static char	*get_word(char *s, char c)
 {
 	char	*res;
 	int		i;
@@ -55,7 +55,7 @@ char	*get_word(char *s, char c)
 	return (res);
 }
 
-void	free_split(char **res, int count)
+static void	free_split(char **res, int count)
 {
 	while (count > 0)
 	{
@@ -65,7 +65,7 @@ void	free_split(char **res, int count)
 	free(res);
 }
 
-char	**split_string(char const *s, char c, int word_count)
+static char	**split_string(char const *s, char c, int word_count)
 {
 	char	**res;
 	int		i;
